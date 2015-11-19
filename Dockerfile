@@ -7,3 +7,4 @@ RUN tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz
 RUN rm -rf go1.5.1.linux-amd64.tar.gz
 RUN su - jenkins -c 'mkdir -p ~/go; echo "export GOPATH=$HOME/go" >> ~/.bashrc;echo "export PATH=$PATH:$HOME/go/bin:/usr/local/go/bin" >> ~/.bashrc'
 
+RUN su - jenkins -c 'export GOPATH=$HOME/go; export PATH=$PATH:$HOME/go/bin:/usr/local/go/bin;go get github.com/tools/godep'
