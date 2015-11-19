@@ -7,4 +7,6 @@ RUN tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz
 RUN rm -rf go1.5.1.linux-amd64.tar.gz
 RUN su - jenkins -c 'mkdir -p ~/go'
 ADD .bashrc /home/jenkins/.bashrc
-RUN su - jenkins -c 'source ~/.bashrc;go get github.com/tools/godep'
+ADD .gitconfig /home/jenkins/.gitconfig
+RUN su - jenkins -c 'source ~/.bashrc;go get github.com/tools/godep;go get github.com/mattes/migrate'
+
