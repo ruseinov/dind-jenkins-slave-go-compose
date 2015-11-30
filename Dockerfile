@@ -9,5 +9,6 @@ RUN su - jenkins -c 'mkdir -p ~/go'
 ADD .bashrc /home/jenkins/.bashrc
 RUN apt-get update
 RUN apt-get install -y gcc
-RUN su - jenkins -c 'source ~/.bashrc;go get github.com/tools/godep;go get github.com/mattes/migrate'
+RUN apt-get install -y mercurial
+RUN su - jenkins -c 'source ~/.bashrc;go get github.com/tools/godep;go get github.com/mattes/migrate;  go get bitbucket.org/tebeka/go2xunit'
 ADD .gitconfig /home/jenkins/.gitconfig
